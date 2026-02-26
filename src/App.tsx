@@ -1,35 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import Home from './page/Home';// 导入首页组件
+// 以后可以导入其他页面，比如 Problem
+// import Problem from './pages/Problem';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <HashRouter>  {/* 使用 HashRouter 避免 GitHub Pages 刷新 404 */}
+      <Routes>
+        <Route path="/" element={<Home />} />          {/* 首页 */}
+        {/* 后续可添加其他路由，例如 */}
+        {/* <Route path="/problem/:id" element={<Problem />} /> */}
+      </Routes>
+    </HashRouter>
+  );
 }
 
-export default App
+export default App;
