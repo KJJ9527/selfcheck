@@ -4,9 +4,12 @@ import './index.css'
 import App from './App.tsx'
 import 'antd/dist/reset.css';  // antd v5 的样式重置
 import 'antd/dist/antd.css';
+// import { ConfigProvider } from 'antd';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    {/* <ConfigProvider> */}
+      <App />
+    {/* </ConfigProvider> */}
   </StrictMode>,
 )

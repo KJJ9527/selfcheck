@@ -3,10 +3,52 @@
     "id": "split-amount",
     "title": "如何解决签名验证失败!",
     "description": "在发起接口请求时，我收到\"签名验证失败!\"错误",
-    "scene":["支付","分账","商户"],
-    "category": "分账问题1",
+    "scene": [
+      {
+        "payment": "支付"
+      }
+    ],
     "hot": true,
-    "tags": ["金额不平", "分账", "手续费"]
+    "shortDescription": "简短描述",
+    "solution": "解决方案"
+  },
+  {
+    "id": "split-amount2",
+    "title": "如何解决签名验证失败!222",
+    "description": "在发起接口请求时，我收到\"签名验证失败!\"错误",
+    "scene": [
+      {
+        "split": "分账"
+      }
+    ],
+    "hot": true,
+    "shortDescription": "简短描述222",
+    "solution": "解决方案222"
+  },
+  {
+    "id": "split-amount3",
+    "title": "如何解决签名验证失败!333",
+    "description": "在发起接口请求时，我收到\"签名验证失败!\"错误",
+    "scene": [
+      {
+        "merchant": "商户"
+      }
+    ],
+    "hot": true,
+    "shortDescription": "简短描述333",
+    "solution": "解决方案333"
+  },
+  {
+    "id": "split-amount4",
+    "title": "如何解决签名验证失败!444",
+    "description": "在发起接口请求时，我收到\"签名验证失败!\"错误",
+    "scene": [
+      {
+        "refund": "退款"
+      }
+    ],
+    "hot": true,
+    "shortDescription": "简短描述444",
+    "solution": "解决方案444"
   }
-  
 ]

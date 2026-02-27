@@ -1,16 +1,21 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Row, Col, Input, Select, Card, List, Tag, Divider } from 'antd';
+import { Row, Col, Input, Select, Card, List, Divider, Alert } from 'antd';
 import problems from '../data/problems.json';
+import { SceneOptions } from '../constants/filters';
+
+interface SceneItem {
+  [key: string]: string | undefined;
+}
 
 interface Problem {
   id: string;
   title: string;
-  category: string;
   description: string;
+  scene: SceneItem[];
   hot?: boolean;
-  scene: string[];
-  tags: string[];
+  shortDescription?: string;
+  solution?: string;
 }
 interface GroupedProblems {
   [title: string]: Problem[];
@@ -19,31 +24,27 @@ interface GroupedProblems {
 export default function Home() {
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState('');
-  const [tags, setTags] = useState<string[]>([]);
-  const [order, setOrder] = useState<'new' | 'hot'>('new');
+  const [scene, setScene] = useState<string[]>([]);
 
-  // 所有标签选项
-  const tagOptions = useMemo(
-    () =>
-      Array.from(new Set(problems.map((p) => p.title))).map((c) => ({
-        label: c,
-        value: c,
-      })),
-    []
-  );
-
-  // 根据关键字和标签筛选题目
+  // 根据关键字筛选题目
   const filtered = useMemo(
     () =>
       problems.filter((p) => {
         const matchWord =
           keyword === '' ||
           p.title.includes(keyword) ||
-          p.description.includes(keyword);
-        const matchTag = tags.length === 0 || tags.includes(p.title);
-        return matchWord && matchTag;
+          p.description.includes(keyword) || p.scene.some((s) => Object.values(s).some((v) => v?.includes(keyword)));
+
+        // scene 为空表示不过滤，非空则要求题目某个场景值在选中列表里
+        const matchScene =
+          scene.length === 0 ||
+          p.scene.some((s) =>
+            Object.keys(s).some((v) => v && scene.includes(v))
+          )
+
+        return matchWord && matchScene
       }),
-    [keyword, tags]
+    [keyword, scene]
   );
 
   // 分组
@@ -59,9 +60,24 @@ export default function Home() {
 
   return (
     <div>
-      {/* 搜索/筛选行 */}
-      <Row gutter={[16, 16]} align="middle">
-        <Col xs={24} sm={24} md={8}>
+      <Alert
+        title="如果觉得这个文档不错，欢迎点个赞！"
+        showIcon
+        closable
+      />
+      <br />
+      <Row gutter={16}>
+        <Col xs={24}
+          sm={24}
+          md={12}
+          lg={12}><h2>支付异常知识库</h2></Col>
+      </Row>
+      <br />
+      <Row gutter={16}>
+        <Col xs={24}
+          sm={24}
+          md={8}
+          lg={8}>
           <Input.Search
             placeholder="筛选知识中心内容"
             allowClear
@@ -69,55 +85,50 @@ export default function Home() {
             onChange={(e) => setKeyword(e.target.value)}
           />
         </Col>
-        <Col xs={24} sm={24} md={10}>
+        <Col xs={24}
+          sm={24}
+          md={8}
+          lg={8}>
           <Select
             mode="multiple"
             allowClear
             placeholder="选择要筛选的标签"
             style={{ width: '100%' }}
-            options={tagOptions}
-            value={tags}
-            onChange={setTags}
-          />
-        </Col>
-        <Col xs={0} md={6}>
-          <Select
-            style={{ width: '100%' }}
-            value={order}
-            onChange={(v) => setOrder(v as any)}
-            options={[
-              { label: '最新', value: 'new' },
-              { label: '最热', value: 'hot' },
-            ]}
+            options={SceneOptions}
+            value={scene}
+            onChange={setScene}
           />
         </Col>
       </Row>
 
+
+
+
       <Divider />
 
       {/* 卡片布局 */}
+
       <Row gutter={[16, 16]}>
         {Object.entries(grouped).map(([title, list]) => (
           <Col
             key={title}
             xs={24}
             sm={24}
-            md={12}
-            lg={12}           /* 大屏、中屏每行两个 */
+            md={8}
+            lg={8}
           >
-            <Card hoverable title={title}>
+            <Card hoverable title={title} onClick={() => navigate(`/problem/${list[0].id}`)}>
               <List
                 itemLayout="vertical"
                 dataSource={list}
-                renderItem={(item) => (
+                renderItem={(item: Problem) => (
                   <List.Item
-                    onClick={() => navigate(`/problem/${item.id}`)}
                     className="cursor-pointer"
                   >
                     <List.Item.Meta
                       description={item.description}
                     />
-                    {item.hot && <Tag color="red">{item.scene}</Tag>}
+                    {/* <Tag color="red">{item.scene}</Tag> */}
                   </List.Item>
                 )}
               />
