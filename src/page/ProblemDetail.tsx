@@ -28,7 +28,7 @@ const ProblemDetail: React.FC = () => {
   return (
     <Card>
       <Typography>
-        <Title level={3}>{problem.title}</Title>
+        <Title level={2}>{problem.title}</Title>
         <Paragraph>{problem.description}</Paragraph>
         <Paragraph>
           <ReactMarkdown>{problem.solution}</ReactMarkdown>
