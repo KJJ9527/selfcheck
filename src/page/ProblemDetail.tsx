@@ -1,41 +1,48 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Typography, Card } from 'antd';
-import problems from '../data/problems.json';
+import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { Typography, Spin } from 'antd';
+import problems from '../data/problems.json';
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
-interface Problem {
-  id: string;
-  title: string;
-  description: string;
-  solution: string;
-}
-
-const ProblemDetail: React.FC = () => {
+export default function ProblemDetail() {
   const { id } = useParams<{ id: string }>();
-  const problem: Problem | undefined = problems.find((p: Problem) => p.id === id);
+  const [markdown, setMarkdown] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  if (!problem) {
-    return (
-      <Card>
-        <Title level={4}>问题不存在</Title>
-      </Card>
-    );
-  }
+  // 查找问题基本信息（用于展示标题）
+  const problem = problems.find(p => p.id === id);
+
+  useEffect(() => {
+    if (!id) return;
+
+    const base = import.meta.env.BASE_URL; // 获取 /selfcheck/
+    // 从 public 目录加载对应的 markdown 文件
+    fetch(`${base}problems/${id}.md`)
+      .then(res => {
+        if (!res.ok) throw new Error('Markdown not found');
+        return res.text();
+      })
+      .then(text => {
+        setMarkdown(text);
+        setLoading(false);
+      })
+      .catch(() => {
+        setMarkdown('### 未找到该问题的详细内容');
+        setLoading(false);
+      });
+  }, [id]); // 依赖 id，当 id 变化时重新加载
+
+  if (loading) return <Spin size="large" style={{ display: 'block', margin: '50px auto' }} />;
 
   return (
-    <Card>
-      <Typography>
-        <Title level={2}>{problem.title}</Title>
-        <Paragraph>{problem.description}</Paragraph>
-        <Paragraph>
-          <ReactMarkdown>{problem.solution}</ReactMarkdown>
-        </Paragraph>
-      </Typography>
-    </Card>
+    <div>
+      {problem && <Title level={2}>{problem.title}</Title>}
+      {problem && <Title level={3}>{problem.description}</Title>}
+      <div style={{ background: '#fff', padding: 24, borderRadius: 8 }}>
+        <ReactMarkdown>{markdown}</ReactMarkdown>
+      </div>
+    </div>
   );
-};
-
-export default ProblemDetail;
+}
