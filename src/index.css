@@ -1,0 +1,21 @@
+/* src/index.css 或全局样式文件 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f0f2f5;  /* 与 Ant Design 背景色协调 */
+}
+
+#root {
+  max-width: 1400px;           /* 限制最大宽度，防止在大屏幕上无限拉伸 */
+  margin: 0 auto;              /* 水平居中 */
+  padding: 24px;               /* 给根容器左右内边距，避免内容贴边 */
+  min-height: 100vh;           /* 至少占满视口高度 */
+  background-color: #ffffff;   /* 内容区白色背景（可选） */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* 轻微阴影，增加层次感 */
+}

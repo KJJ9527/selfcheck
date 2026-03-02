@@ -100,6 +100,8 @@ export default function ProblemList({ keyword, scene }: { keyword: string; scene
           onChange={(page) => setCurrentPage(page)}
           showSizeChanger={false}
           style={{ textAlign: 'center' }}
+          align="end"
+          hideOnSinglePage={true}
         />
       )}
     </>
