@@ -12,5 +12,16 @@
       }
     ],
     "hot": true
+  },
+  {
+    "id": "order-information-not-exist",
+    "title": "如何解决订单信息不存在!",
+    "description": "在发起查询、退款等请求时，我收到\"订单信息不存在！\"错误",
+    "scene": [
+      {
+        "payment": "支付"
+      }
+    ],
+    "hot": true
   }
 ]
