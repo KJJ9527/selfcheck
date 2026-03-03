@@ -19,3 +19,7 @@ body {
   background-color: #ffffff;   /* 内容区白色背景（可选） */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* 轻微阴影，增加层次感 */
 }
+
+.custom-knowledge-card .ant-card-head {
+  background-color: #FFF2E8 !important;
+}

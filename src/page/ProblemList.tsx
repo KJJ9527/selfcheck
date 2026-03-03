@@ -70,6 +70,7 @@ export default function ProblemList({ keyword, scene }: { keyword: string; scene
         {paginatedEntries.map(([title, list]) => (
           <Col key={title} xs={24} sm={24} md={8} lg={8}>
             <Card
+              className="custom-knowledge-card"
               hoverable
               title={title}
               onClick={() => navigate(`/problem/${list[0].id}`)}
