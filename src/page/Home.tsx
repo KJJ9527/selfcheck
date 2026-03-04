@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div>
-      <Alert title="如果觉得这个文档不错，欢迎点个赞！" showIcon closable />
+      <Alert title="请帮助我们改进知识库。您的意见会影响我们如何创建和更新内容。" showIcon closable />
       <br />
       <Row gutter={16}>
         <Col xs={24} sm={24} md={12} lg={12}>
