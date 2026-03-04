@@ -23,5 +23,19 @@
       }
     ],
     "hot": true
+  },
+  {
+    "id": "no-callback",
+    "title": "支付完成后未收到回调通知",
+    "description": "在完成支付、分账等操作后，我未收到回调通知",
+    "scene": [
+      {
+        "payment": "支付"
+      },
+      {
+        "split": "分账"
+      }
+    ],
+    "hot": true
   }
 ]
