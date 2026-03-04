@@ -83,7 +83,7 @@ export default function ProblemList({ keyword, scene }: { keyword: string; scene
                     <List.Item.Meta description={item.description} />
                     {item.scene.map((value) => {
                       const tagText = Object.values(value)[0];
-                      return tagText ? <Tag key={tagText}>{tagText}</Tag> : null;
+                      return tagText ? <Tag color="blue" key={tagText}>{tagText}</Tag> : null;
                     })}
                   </List.Item>
                 )}
