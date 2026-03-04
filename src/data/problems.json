@@ -37,5 +37,19 @@
       }
     ],
     "hot": true
+  },
+  {
+    "id": "Insufficient-balance",
+    "title": "如何解决余额不足或商户余额不足不允许退款！",
+    "description": "在发起退款请求或余额分账请求时，我收到\"余额不足或商户余额不足不允许退款！\"错误",
+    "scene": [
+      {
+        "payment": "支付"
+      },
+      {
+        "split": "分账"
+      }
+    ],
+    "hot": true
   }
 ]
