@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import { Row, Col, Input, Select, Alert } from 'antd';
 import { SceneOptions } from '../constants/filters';
 import ProblemList from './ProblemList';
+import { useFilter } from '../contexts/FilterContext';
 
 export default function Home() {
-  const [keyword, setKeyword] = useState('');
-  const [scene, setScene] = useState<string[]>([]);
+  const { keyword, scene, setKeyword, setScene } = useFilter();
 
   // 生成唯一 key，当 keyword 或 scene 变化时，key 变化，强制重置 ProblemList 内部状态（包括 currentPage）
   const filterKey = `${keyword}-${scene.join(',')}`;
