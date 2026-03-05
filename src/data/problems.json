@@ -68,5 +68,27 @@
       }
     ],
     "hot": true
+  },
+  {
+    "id": "terminal-information-not-exist",
+    "title": "终端信息不存在或已关闭",
+    "description": "在发起支付相关请求时，我收到\"终端信息不存在或已关闭\"错误",
+    "scene": [
+      {
+        "payment": "支付"
+      }
+    ],
+    "hot": true
+  },
+  {
+    "id": "bigdata-whitelist-verification-failed",
+    "title": "工商大数据白名单校验失败，请联系中信银行",
+    "description": "在发起分账账户开户相关请求时，我收到\"工商大数据白名单校验失败，请联系中信银行\"错误",
+    "scene": [
+      {
+        "split": "分账"
+      }
+    ],
+    "hot": true
   }
 ]
