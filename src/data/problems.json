@@ -54,5 +54,19 @@
       }
     ],
     "hot": true
+  },
+  {
+    "id": "no-suchkey",
+    "title": "对账单下载失败，提示NoSuchKey",
+    "description": "在发起对账单下载请求时，我收到NoSuchKey、The specified key does not exist等错误",
+    "scene": [
+      {
+        "payment": "支付"
+      },
+      {
+        "split": "分账"
+      }
+    ],
+    "hot": true
   }
 ]
