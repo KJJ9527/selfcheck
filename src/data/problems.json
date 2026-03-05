@@ -2,7 +2,7 @@
   {
     "id": "signature-verification-failed",
     "title": "如何解决签名验证失败!",
-    "description": "在发起接口请求时，我收到\"签名验证失败!\"错误",
+    "description": "我在发起接口请求时，收到\"签名验证失败!\"错误",
     "scene": [
       {
         "payment": "支付"
@@ -19,7 +19,7 @@
   {
     "id": "order-information-not-exist",
     "title": "如何解决订单信息不存在!",
-    "description": "在发起查询、退款等请求时，我收到\"订单信息不存在！\"错误",
+    "description": "我在发起查询、退款等请求时，收到\"订单信息不存在！\"错误",
     "scene": [
       {
         "payment": "支付"
@@ -29,8 +29,8 @@
   },
   {
     "id": "no-callback",
-    "title": "支付完成后未收到回调通知",
-    "description": "在完成支付、分账等操作后，我未收到回调通知",
+    "title": "为什么支付完成后未收到回调通知",
+    "description": "我在完成支付、分账等操作后，未收到回调通知",
     "scene": [
       {
         "payment": "支付"
@@ -44,7 +44,7 @@
   {
     "id": "Insufficient-balance",
     "title": "如何解决余额不足或商户余额不足不允许退款！",
-    "description": "在发起退款请求或余额分账请求时，我收到\"余额不足或商户余额不足不允许退款！\"错误",
+    "description": "我在发起退款请求或余额分账请求时，收到\"余额不足或商户余额不足不允许退款！\"错误",
     "scene": [
       {
         "split": "分账"
@@ -57,8 +57,8 @@
   },
   {
     "id": "no-suchkey",
-    "title": "对账单下载失败，提示NoSuchKey",
-    "description": "在发起对账单下载请求时，我收到NoSuchKey、The specified key does not exist等错误",
+    "title": "如何解决对账单下载失败，提示NoSuchKey",
+    "description": "我在发起对账单下载请求时，收到NoSuchKey、The specified key does not exist等错误",
     "scene": [
       {
         "payment": "支付"
@@ -71,8 +71,8 @@
   },
   {
     "id": "terminal-information-not-exist",
-    "title": "终端信息不存在或已关闭",
-    "description": "在发起支付相关请求时，我收到\"终端信息不存在或已关闭\"错误",
+    "title": "如何解决终端信息不存在或已关闭",
+    "description": "我在发起支付相关请求时，收到\"终端信息不存在或已关闭\"错误",
     "scene": [
       {
         "payment": "支付"
@@ -81,14 +81,25 @@
     "hot": true
   },
   {
-    "id": "bigdata-whitelist-verification-failed",
-    "title": "工商大数据白名单校验失败，请联系中信银行",
-    "description": "在发起分账账户开户相关请求时，我收到\"工商大数据白名单校验失败，请联系中信银行\"错误",
+    "id": "mini-program-violation",
+    "title": "如何解决由于小程序违规，支付功能暂时无法使用",
+    "description": "我在发起小程序支付时，收到\"由于小程序违规，支付功能暂时无法使用\"错误",
     "scene": [
       {
-        "split": "分账"
+        "payment": "支付"
       }
     ],
     "hot": true
+  },
+  {
+    "id": "current-page-url-not-registered",
+    "title": "如何解决当前页面的URL未注册",
+    "description": "我在发起支付请求时，收到\"当前页面的URL未注册\"错误",
+    "scene": [
+      {
+        "payment": "支付"
+      }
+    ],
+    "hot": false
   }
 ]

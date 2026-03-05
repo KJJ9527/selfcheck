@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Row, Col, Card, List, Tag, Pagination } from 'antd';
+import { Row, Col, Card, Tag, Pagination } from 'antd';
 import problems from '../data/problems.json';
 
 interface SceneItem {
@@ -75,19 +75,19 @@ export default function ProblemList({ keyword, scene }: { keyword: string; scene
               title={title}
               onClick={() => navigate(`/problem/${list[0].id}`)}
             >
-              <List
-                itemLayout="vertical"
-                dataSource={list}
-                renderItem={(item: Problem) => (
-                  <List.Item className="cursor-pointer">
-                    <List.Item.Meta description={item.description} />
-                    {item.scene.map((value) => {
-                      const tagText = Object.values(value)[0];
-                      return tagText ? <Tag color="blue" key={tagText}>{tagText}</Tag> : null;
-                    })}
-                  </List.Item>
-                )}
-              />
+              <div className="card-content">
+                {/* 描述文本（限制行数） */}
+                <div className="card-description">
+                  {list[0].description}
+                </div>
+                {/* 标签区域（固定在底部） */}
+                <div className="card-tags">
+                  {list[0].scene.map((value) => {
+                    const tagText = Object.values(value)[0];
+                    return tagText ? <Tag color="blue" key={tagText}>{tagText}</Tag> : null;
+                  })}
+                </div>
+              </div>
             </Card>
           </Col>
         ))}
