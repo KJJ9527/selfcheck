@@ -112,5 +112,27 @@
       }
     ],
     "hot": false
+  },
+  {
+    "id": "sub-mch-id-not-match-sub-appid",
+    "title": "如何解决sub_mch_id与sub_appid不匹配",
+    "description": "我在发起公众号、小程序支付请求时，收到\"预支付失败:sub_mch_id与sub_appid不匹配\"错误",
+    "scene": [
+      {
+        "payment": "支付"
+      }
+    ],
+    "hot": false
+  },
+  {
+    "id": "payment-success-no-return-page",
+    "title": "如何解决用户支付后，没有返回当前指定页面",
+    "description": "我在完成公众号或聚合码支付后，直接退出页面了，如何能返回指定页面",
+    "scene": [
+      {
+        "payment": "支付"
+      }
+    ],
+    "hot": false
   }
 ]
