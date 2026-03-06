@@ -24,7 +24,7 @@ interface GroupedProblems {
 export default function ProblemList({ keyword, scene }: { keyword: string; scene: string[] }) {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 12; // 每页显示 12 个卡片（即 12 个标题分组）
+  const pageSize = 9; // 每页显示 12 个卡片（即 12 个标题分组）
 
   // 根据关键字和场景筛选题目
   const filtered = useMemo(

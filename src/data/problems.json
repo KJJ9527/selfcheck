@@ -101,5 +101,16 @@
       }
     ],
     "hot": false
+  },
+  {
+    "id": "original-split-order-not-found",
+    "title": "如何解决未找到原分账订单",
+    "description": "我在完成分账交易退回操作时，收到\"未找到原分账订单\"错误",
+    "scene": [
+      {
+        "split": "分账"
+      }
+    ],
+    "hot": false
   }
 ]
