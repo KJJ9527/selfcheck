@@ -1,7 +1,7 @@
 [
   {
     "id": "signature-verification-failed",
-    "title": "如何解决签名验证失败!",
+    "title": "签名验证失败!",
     "description": "我在发起接口请求时，收到\"签名验证失败!\"错误",
     "scene": [
       {
@@ -18,7 +18,7 @@
   },
   {
     "id": "order-information-not-exist",
-    "title": "如何解决订单信息不存在!",
+    "title": "订单信息不存在!",
     "description": "我在发起查询、退款等请求时，收到\"订单信息不存在！\"错误",
     "scene": [
       {
@@ -43,7 +43,7 @@
   },
   {
     "id": "Insufficient-balance",
-    "title": "如何解决余额不足或商户余额不足不允许退款！",
+    "title": "余额不足或商户余额不足不允许退款！",
     "description": "我在发起退款请求或余额分账请求时，收到\"余额不足或商户余额不足不允许退款！\"错误",
     "scene": [
       {
@@ -57,7 +57,7 @@
   },
   {
     "id": "no-suchkey",
-    "title": "如何解决对账单下载失败，提示NoSuchKey",
+    "title": "对账单下载失败，提示NoSuchKey",
     "description": "我在发起对账单下载请求时，收到NoSuchKey、The specified key does not exist等错误",
     "scene": [
       {
@@ -71,7 +71,7 @@
   },
   {
     "id": "terminal-information-not-exist",
-    "title": "如何解决终端信息不存在或已关闭",
+    "title": "终端信息不存在或已关闭",
     "description": "我在发起支付相关请求时，收到\"终端信息不存在或已关闭\"错误",
     "scene": [
       {
@@ -82,7 +82,7 @@
   },
   {
     "id": "mini-program-violation",
-    "title": "如何解决由于小程序违规，支付功能暂时无法使用",
+    "title": "由于小程序违规，支付功能暂时无法使用",
     "description": "我在发起小程序支付时，收到\"由于小程序违规，支付功能暂时无法使用\"错误",
     "scene": [
       {
@@ -93,7 +93,7 @@
   },
   {
     "id": "current-page-url-not-registered",
-    "title": "如何解决当前页面的URL未注册",
+    "title": "当前页面的URL未注册",
     "description": "我在发起支付请求时，收到\"当前页面的URL未注册\"错误",
     "scene": [
       {
@@ -104,7 +104,7 @@
   },
   {
     "id": "original-split-order-not-found",
-    "title": "如何解决未找到原分账订单",
+    "title": "未找到原分账订单",
     "description": "我在完成分账交易退回操作时，收到\"未找到原分账订单\"错误",
     "scene": [
       {
@@ -115,7 +115,7 @@
   },
   {
     "id": "sub-mch-id-not-match-sub-appid",
-    "title": "如何解决sub_mch_id与sub_appid不匹配",
+    "title": "sub_mch_id与sub_appid不匹配",
     "description": "我在发起公众号、小程序支付请求时，收到\"预支付失败:sub_mch_id与sub_appid不匹配\"错误",
     "scene": [
       {
@@ -131,6 +131,34 @@
     "scene": [
       {
         "payment": "支付"
+      }
+    ],
+    "hot": false
+  },
+  {
+    "id": "terminal-information-not-reported-or-status-abnormal",
+    "title": "终端信息未报备或状态异常",
+    "description": "我在发起支付后，收到\"终端信息未报备或状态异常\"错误",
+    "scene": [
+      {
+        "payment": "支付"
+      }
+    ],
+    "hot": false
+  },
+  {
+    "id": "account-opening-abnormal",
+    "title": "开户异常",
+    "description": "我在开户请求后，收到\"开户异常\"错误",
+    "scene": [
+      {
+        "payment": "支付"
+      },
+      {
+        "split": "分账"
+      },
+      {
+        "account": "账户"
       }
     ],
     "hot": false
