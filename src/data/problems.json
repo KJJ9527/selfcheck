@@ -169,7 +169,7 @@
     "description": "我在进行商户开户操作后，未收到审核回调通知",
     "scene": [
       {
-        "split": "商户"
+        "merchant": "商户"
       }
     ],
     "hot": true

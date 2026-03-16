@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "convert-and-upload": "node scripts/convert-md-for-openclaw.cjs && scp -r ./openclaw-md/* root@101.43.14.248:/root/openclaw/workspace/memory/"
   },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
